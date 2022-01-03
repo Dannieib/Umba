@@ -1,16 +1,20 @@
-# This is a sample Python script.
+import httpx
+import uvicorn
+import asyncio
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from models import UserModel
+from Services.logics import UserService
+import uvicorn as server
+import fastapi
+
+router = fastapi.FastAPI()
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+@router.get('/api/1/get_user')
+async def get_all_user():
+    resp = await UserService.get_users()
+    print(resp)
+    return resp
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+uvicorn.run(router)
