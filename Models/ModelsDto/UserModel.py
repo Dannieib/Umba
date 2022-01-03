@@ -3,7 +3,7 @@ from __future__ import annotations
 from pydantic import BaseModel
 
 
-class Model(BaseModel):
+class UserModel(BaseModel):
     login: str
     id: int
     node_id: str

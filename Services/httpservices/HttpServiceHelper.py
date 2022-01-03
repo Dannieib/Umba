@@ -5,7 +5,7 @@ import httpx
 # import json
 # from pydantic import parse_obj_as
 #
-# from models import UserModel
+# from Models import UserModel
 
 
 async def get_github_users():

@@ -1,10 +1,6 @@
-import httpx
 import uvicorn
-import asyncio
 
-from models import UserModel
 from Services.logics import UserService
-import uvicorn as server
 import fastapi
 
 router = fastapi.FastAPI()
