@@ -1,12 +1,14 @@
 from pydantic import BaseModel
-from sqlalchemy import Boolean, Column, Integer, String
+from Infrastructure.Database.UserDatabase import Base
+from sqlalchemy import Column, Integer, String, Boolean
 
 
-class User(BaseModel):
-    __tablename__ = "GithubUsers"
+class User(Base):
+    __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True, index=True)
-    login = Column(String, unique=True, index=True)
+    user_id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer)
+    login = Column(String)
     node_id = Column(String)
     avatar_url = Column(String)
     gravatar_id = Column(String)
@@ -22,4 +24,4 @@ class User(BaseModel):
     events_url = Column(String)
     received_events_url = Column(String)
     type = Column(String)
-    site_admin = Column(Boolean)
+    site_admin = Column(Boolean, default=False)

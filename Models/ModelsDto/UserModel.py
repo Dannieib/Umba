@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+from typing import List
+
 from pydantic import BaseModel
 
 
 class UserModel(BaseModel):
+    user_id: int
     login: str
     id: int
     node_id: str
@@ -22,3 +25,9 @@ class UserModel(BaseModel):
     received_events_url: str
     type: str
     site_admin: bool
+
+    class Config:
+        orm_mode = True
+
+    class UserList(BaseModel):
+        users: List[UserModel]
